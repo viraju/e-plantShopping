@@ -7,7 +7,9 @@ function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
+    const [currentPage, setCurrentPage] = useState("products");
     const dispatch = useDispatch();
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -276,8 +278,8 @@ const handlePlantsClick = (e) => {
 };
 
    const handleContinueShopping = (e) => {
-    e.preventDefault();
-    setShowCart(false);
+    //e.preventDefault();
+    setCurrentPage("products");
   };
   const handleAddToCart = (plant) => {
     console.log(plant)

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, removeItem } from "./CartSlice";
 import './CartItem.css'; // Make sure you define styles for this file
 
-const CartItem = () => {
+const CartItem = ({ onContinueShopping }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -35,6 +35,15 @@ const CartItem = () => {
     return (Math.round(total * 100) / 100).toFixed(2);  // Rounding to 2 decimal places
   };
   
+  const handleContinueShopping = () => {
+    if (onContinueShopping) {
+      onContinueShopping(); // Call the function passed from the parent
+    }
+  };
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
+  };
+
   return (
     <div className="cart-container mx-auto max-w-7xl p-6">
       <h2 className="text-3xl font-bold text-center mb-6">Shopping Cart</h2>
@@ -85,10 +94,10 @@ const CartItem = () => {
             </h3>
           </div>
           <div className="mt-6 flex justify-between">
-            <button className="get-started-button">
+            <button onClick={handleContinueShopping} className="get-started-button">
               Continue Shopping
             </button><br/>
-            <button className="get-started-button1">
+            <button  onClick={handleCheckoutShopping } className="get-started-button1">
               Checkout
             </button>
           </div>
