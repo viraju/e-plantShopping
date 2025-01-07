@@ -9,11 +9,13 @@ const CartItem = () => {
 
   // Handle Increment
   const handleIncrement = (id) => {
+    console.log(id);
     dispatch(increment({ id }));
   };
 
   // Handle Decrement
   const handleDecrement = (id) => {
+    console.log(id);
     dispatch(decrement({ id }));
   };
 
@@ -24,14 +26,12 @@ const CartItem = () => {
 
   const calculateSubtotal = (item) => {
     const subtotal = item.quantity * item.cost;
-    console.log(subtotal);
     return (Math.round(subtotal * 100) / 100).toFixed(2);  // Rounding to 2 decimal places
   };
   
   // Calculate Total for all items
   const calculateTotal = () => {
     const total = cartItems.reduce((acc, item) => acc + item.quantity * item.cost, 0);
-    console.log(total);
     return (Math.round(total * 100) / 100).toFixed(2);  // Rounding to 2 decimal places
   };
   
@@ -81,13 +81,13 @@ const CartItem = () => {
           </ul>
           <div className="cart-total mt-6 text-right">
             <h3 className="total_cart_amount">
-              Total: Rs. ${calculateTotal()}
+              Total: Rs.{calculateTotal()}
             </h3>
           </div>
           <div className="mt-6 flex justify-between">
             <button className="get-started-button">
               Continue Shopping
-            </button>
+            </button><br/>
             <button className="get-started-button1">
               Checkout
             </button>
