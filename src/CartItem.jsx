@@ -48,30 +48,30 @@ const CartItem = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="cart-item-image w-24 h-24 object-cover rounded-md"
+                  className="cart-item-image"
                 />
                 <div className="cart-item-details flex-grow pl-4">
-                  <h3 className="text-xl font-semibold">{item.name}</h3>
-                  <p className="text-gray-600">Price: {item.cost}</p>
-                  <p className="text-gray-600">Subtotal: Rs.{calculateSubtotal(item)}</p>
+                  <h3 className="cart-item-name">{item.name}</h3>
+                  <p className="cart-item-cost">Price: {item.cost}</p>
+                  <p className="cart-item-quantity">Subtotal: Rs.{calculateSubtotal(item)}</p>
                   <div className="cart-item-controls flex items-center space-x-3 mt-2">
                     <button
                       onClick={() => handleDecrement(item.id)}
-                      className="bg-red-500 text-white p-2 rounded hover:bg-red-600"
+                      className="cart-item-button cart-item-button-dec"
                     >
                       -
                     </button>
-                    <span className="text-lg">{item.quantity}</span>
+                    <span className="cart-item-quantity-value">{item.quantity}</span>
                     <button
                       onClick={() => handleIncrement(item.id)}
-                      className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
+                      className="cart-item-button cart-item-button-inc"
                     >
                       +
                     </button>
                   </div>
                   <button
                     onClick={() => handleRemove(item.id)}
-                    className="mt-4 bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-900"
+                    className="cart-item-delete"
                   >
                     Remove
                   </button>
@@ -80,15 +80,15 @@ const CartItem = () => {
             ))}
           </ul>
           <div className="cart-total mt-6 text-right">
-            <h3 className="text-2xl font-semibold">
+            <h3 className="total_cart_amount">
               Total: Rs. ${calculateTotal()}
             </h3>
           </div>
           <div className="mt-6 flex justify-between">
-            <button className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+            <button className="get-started-button">
               Continue Shopping
             </button>
-            <button className="bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+            <button className="get-started-button1">
               Checkout
             </button>
           </div>
